@@ -1,3 +1,21 @@
+export interface Image {
+  url: string
+  alt: string
+  width: number
+  height: number
+}
+
+export interface Category {
+  id: string
+  name: string
+  slug: string
+  color: string
+}
+
+export interface Author {
+  name: string
+}
+
 export interface Post {
   id: string
   slug: string
@@ -6,12 +24,7 @@ export interface Post {
   content: string
   category: Category
   tags: string[]
-  coverImage: {
-    url: string
-    alt: string
-    width: number
-    height: number
-  }
+  coverImage: Image
   videoUrl?: string
   isVideo: boolean
   isBreaking: boolean
@@ -19,36 +32,15 @@ export interface Post {
   views: number
   shares: number
   commentsCount: number
-  author: {
-    name: string
-    avatar?: string
-  }
+  author: Author
   publishedAt: string
   updatedAt: string
-}
-
-export interface Category {
-  id: string
-  name: string
-  slug: string
-  color: string
-  description?: string
+  duration?: number
+  platform?: string
 }
 
 export interface VideoPost extends Post {
   videoUrl: string
-  duration?: number
-  platform?: 'youtube' | 'tiktok' | 'instagram' | 'direct'
-}
-
-export interface TrendingPost extends Post {
-  rank: number
-  trend: 'up' | 'down' | 'same'
-}
-
-export interface TelegramChannel {
-  name: string
-  link: string
-  members: number
-  description: string
+  duration: number
+  platform: string
 }
