@@ -1,27 +1,27 @@
 'use client'
 import { Facebook, Twitter, Instagram, Youtube, Mail, Heart, Send } from 'lucide-react'
 import Link from 'next/link'
-import Image from 'next/image'  // Add this import
+import Image from 'next/image'
 
 export default function Footer() {
   const footerLinks = {
     Categories: [
-      { name: 'Hot News', href: '/category/hot-news' },
-      { name: 'Behind Scenes', href: '/category/behind-scenes' },
-      { name: 'Video Vibes', href: '/videos' },
-      { name: 'Around Mtaa', href: '/category/around-mtaa' },
+      { name: 'Hot News', href: '/category/hot-news', external: false },
+      { name: 'Behind Scenes', href: '/category/behind-scenes', external: false },
+      { name: 'Video Vibes', href: '/videos', external: false },
+      { name: 'Around Mtaa', href: '/category/around-mtaa', external: false },
     ],
     Resources: [
       { name: 'Submit a Leak', href: 'https://t.me/mtaaleaks', external: true },
-      { name: 'Advertise', href: '/advertise' },
-      { name: 'Careers', href: '/careers' },
+      { name: 'Advertise', href: '/advertise', external: false },
+      { name: 'Careers', href: '/careers', external: false },
       { name: 'Contact', href: 'https://t.me/mtaaleaks', external: true },
     ],
     Legal: [
-      { name: 'Privacy Policy', href: '/privacy' },
-      { name: 'Terms of Service', href: '/terms' },
-      { name: 'Cookie Policy', href: '/cookies' },
-      { name: 'DMCA', href: '/dmca' },
+      { name: 'Privacy Policy', href: '/privacy', external: false },
+      { name: 'Terms of Service', href: '/terms', external: false },
+      { name: 'Cookie Policy', href: '/cookies', external: false },
+      { name: 'DMCA', href: '/dmca', external: false },
     ]
   }
 

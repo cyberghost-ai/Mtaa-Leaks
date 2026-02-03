@@ -64,8 +64,7 @@ const mockPost: Post = {
   shares: 5400,
   commentsCount: 1240,
   author: { 
-    name: 'Street Insider',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&auto=format&fit=crop'
+    name: 'Street Insider'
   },
   publishedAt: '2024-01-15T18:30:00Z',
   updatedAt: '2024-01-15T20:45:00Z'
@@ -307,19 +306,9 @@ export default function PostPage() {
               <div className="flex items-center gap-4 mb-4">
                 <div className="relative">
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                    {post.author.avatar ? (
-                      <Image
-                        src={post.author.avatar}
-                        alt={post.author.name}
-                        width={64}
-                        height={64}
-                        className="rounded-full"
-                      />
-                    ) : (
-                      <span className="text-2xl font-bold text-black">
-                        {post.author.name.charAt(0)}
-                      </span>
-                    )}
+                    <span className="text-2xl font-bold text-black">
+                      {post.author.name.charAt(0)}
+                    </span>
                   </div>
                   <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center">
                     <span className="text-xs font-bold">✓</span>

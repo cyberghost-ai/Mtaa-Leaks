@@ -12,12 +12,25 @@ interface VideoCardProps {
 }
 
 export default function VideoCard({ video, index }: VideoCardProps) {
-  const platformIcons = {
+  // Define platform icons with type annotation
+  const platformIcons: Record<string, string> = {
     youtube: '▶️',
     tiktok: '🎵',
     instagram: '📸',
-    telegram: '📱', // Add Telegram icon
+    telegram: '📱',
     direct: '🎬'
+  }
+
+  // Helper function to get platform icon safely
+  const getPlatformIcon = (platform: string | undefined): string => {
+    if (!platform) return platformIcons.telegram
+    return platformIcons[platform.toLowerCase()] || platformIcons.telegram
+  }
+
+  // Helper function to get platform name
+  const getPlatformName = (platform: string | undefined): string => {
+    if (!platform) return 'Telegram'
+    return platform.charAt(0).toUpperCase() + platform.slice(1)
   }
 
   const formatDuration = (seconds: number) => {
@@ -89,9 +102,9 @@ export default function VideoCard({ video, index }: VideoCardProps) {
         {/* Platform Badge */}
         <div className="absolute top-4 left-4 z-10">
           <div className="flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-md bg-black/60">
-            <span className="text-sm">{platformIcons[video.platform || 'telegram']}</span>
-            <span className="text-xs font-medium capitalize">
-              {video.platform || 'Telegram'}
+            <span className="text-sm">{getPlatformIcon(video.platform)}</span>
+            <span className="text-xs font-medium">
+              {getPlatformName(video.platform)}
             </span>
           </div>
         </div>
