@@ -32,9 +32,8 @@ export type Post = {
   author: Author;
   publishedAt: string;
   updatedAt: string;
+  duration?: number;    // ADD THIS LINE
+  platform?: string;    // ADD THIS LINE
 };
 
-export type VideoPost = Post & {
-  duration?: number;
-  platform?: string;
-};
+export type VideoPost = Post; // Alias for compatibility
